@@ -1,5 +1,6 @@
 package com.borykapp.secure1.springsecurityjwt.security;
 
+import com.borykapp.secure1.springsecurityjwt.security.exception.SecurityCredentialException;
 import com.borykapp.secure1.springsecurityjwt.security.model.AuthenticationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,12 +17,12 @@ public class AuthenticationService {
     private final SpringSecurityUserDetailsService springSecurityUserDetailsService;
     private final JwtService jwtService;
 
-    public String getAuthenticationToken(AuthenticationRequest authenticationRequest) throws Exception {
+    public String getAuthenticationToken(AuthenticationRequest authenticationRequest) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(),
                     authenticationRequest.getPassword()));
-        } catch (BadCredentialsException e) {
-            throw new Exception("Incorrect username or password");
+        } catch(Exception  e) {
+            throw new SecurityCredentialException(e.getMessage());
         }
 
         UserDetails userDetails = springSecurityUserDetailsService.loadUserByUsername(authenticationRequest.getUserName());
