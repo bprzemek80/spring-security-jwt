@@ -1,7 +1,5 @@
 package com.borykapp.secure1.springsecurityjwt.security;
 
-import com.borykapp.secure1.springsecurityjwt.security.exception.SSUserNotFoundException;
-import com.borykapp.secure1.springsecurityjwt.security.exception.SSWrongCredentialException;
 import com.borykapp.secure1.springsecurityjwt.security.model.AuthenticationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +21,7 @@ public class AuthenticationService {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(),
                     authenticationRequest.getPassword()));
         } catch (BadCredentialsException e) {
-            throw new SSWrongCredentialException("Incorrect username or password");
+            throw new Exception("Incorrect username or password");
         }
 
         UserDetails userDetails = springSecurityUserDetailsService.loadUserByUsername(authenticationRequest.getUserName());

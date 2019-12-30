@@ -1,6 +1,5 @@
 package com.borykapp.secure1.springsecurityjwt.security;
 
-import com.borykapp.secure1.springsecurityjwt.security.exception.SSUserNotFoundException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,6 +27,6 @@ public class SpringSecurityUserDetailsService implements UserDetailsService {
         return inMemoryDatabase.stream()
                 .filter(user -> user.getUsername().equalsIgnoreCase(username))
                 .findFirst()
-                .orElseThrow(() -> new SSUserNotFoundException(format("User not found: [%s]", username)));
+                .orElseThrow(() -> new Exception(format("User not found: [%s]", username)));
     }
 }
