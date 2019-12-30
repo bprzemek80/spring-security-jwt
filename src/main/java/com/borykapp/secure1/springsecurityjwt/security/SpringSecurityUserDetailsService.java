@@ -27,6 +27,6 @@ public class SpringSecurityUserDetailsService implements UserDetailsService {
         return inMemoryDatabase.stream()
                 .filter(user -> user.getUsername().equalsIgnoreCase(username))
                 .findFirst()
-                .orElseThrow(() -> new Exception(format("User not found: [%s]", username)));
+                .orElseThrow(() -> new UsernameNotFoundException(format("User not found: [%s]", username)));
     }
 }
