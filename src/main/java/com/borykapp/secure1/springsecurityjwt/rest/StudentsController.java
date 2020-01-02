@@ -1,5 +1,6 @@
 package com.borykapp.secure1.springsecurityjwt.rest;
 
+import com.borykapp.secure1.springsecurityjwt.domain.students.model.Quote;
 import com.borykapp.secure1.springsecurityjwt.domain.students.StudentsService;
 import com.borykapp.secure1.springsecurityjwt.domain.students.model.Student;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,11 @@ public class StudentsController {
     @GetMapping("/students/{id}")
     public Student getStudentById(@PathVariable Long id) {
         return studentsService.getStudentById(id);
+    }
+
+    @GetMapping("/students/{id}/quote")
+    public Quote getStudentQuoteById(@PathVariable Long id) {
+        return studentsService.getStudentQuoteById(id);
     }
 
 }

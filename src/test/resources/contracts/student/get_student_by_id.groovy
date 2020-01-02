@@ -3,7 +3,7 @@ package student
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    description "should return all students"
+    description "should return student by id"
 
     request {
         url "/students/1"
