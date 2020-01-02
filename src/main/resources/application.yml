@@ -1,4 +1,10 @@
 server:
   port: 8081
+
 security:
   secretKey: secret
+
+logging:
+  level:
+    com.borykapp.secure1: WARN
+    org.springframework.web: INFO
