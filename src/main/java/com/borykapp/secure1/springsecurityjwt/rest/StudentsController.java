@@ -1,34 +1,33 @@
 package com.borykapp.secure1.springsecurityjwt.rest;
 
-import com.borykapp.secure1.springsecurityjwt.domain.students.model.Quote;
-import com.borykapp.secure1.springsecurityjwt.domain.students.StudentsService;
-import com.borykapp.secure1.springsecurityjwt.domain.students.model.Student;
+import com.borykapp.secure1.springsecurityjwt.domain.students.StudentResourceService;
+import com.borykapp.secure1.springsecurityjwt.rest.dto.QuoteStudentResource;
+import com.borykapp.secure1.springsecurityjwt.rest.dto.StudentResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestV1Controller
 @RequiredArgsConstructor
 public class StudentsController {
 
-    private final StudentsService studentsService;
+    private final StudentResourceService studentResourceService;
 
     @GetMapping("/students")
-    public List<Student> getAllStudents() {
-        return studentsService.getAllStudents();
+    public List<StudentResource> getAllStudents() {
+        return studentResourceService.getAllStudents();
     }
 
     @GetMapping("/students/{id}")
-    public Student getStudentById(@PathVariable Long id) {
-        return studentsService.getStudentById(id);
+    public StudentResource getStudentById(@PathVariable Long id) {
+        return studentResourceService.getStudentById(id);
     }
 
     @GetMapping("/students/{id}/quote")
-    public Quote getStudentQuoteById(@PathVariable Long id) {
-        return studentsService.getStudentQuoteById(id);
+    public QuoteStudentResource getStudentQuoteById(@PathVariable Long id) {
+        return studentResourceService.getQuoteByStudentId(id);
     }
 
 }

@@ -6,7 +6,7 @@ Contract.make {
     description "should return quote for student by id"
 
     request {
-        url "/students/1/quote"
+        url "v1/students/1/quote"
         method GET()
     }
 
@@ -17,15 +17,13 @@ Contract.make {
         }
         body(
                 [
-                        type    : 'Type1',
-                        value   : [
-                                id: 1,
-                                quote: 'Sample quote'
-                        ],
+                        type   : 'Type1',
+                        quote  : 'Sample quote',
+                        quoteId: 1,
                         student: [
                                 studentId: 1,
                                 firstName: 'John',
-                                lastName: 'Banana'
+                                lastName : 'Banana'
                         ]
                 ]
         )

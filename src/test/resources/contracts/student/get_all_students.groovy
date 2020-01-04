@@ -2,15 +2,11 @@ package student
 
 import org.springframework.cloud.contract.spec.Contract
 
-import java.time.LocalDate
-
-def fixDate = LocalDate.of(2020, 1, 1)
-
 Contract.make {
     description "should return all students"
 
     request {
-        url "/students"
+        url "v1/students"
         method GET()
     }
 
@@ -22,14 +18,14 @@ Contract.make {
         body(
                 [
                         [
-                                studentId      : '1',
-                                firstName      : 'John',
-                                lastName       : 'Squirrel'
+                                id       : '1',
+                                firstName: 'John',
+                                lastName : 'Squirrel'
                         ],
                         [
-                                studentId      : '2',
-                                firstName      : 'Adam',
-                                lastName       : 'Bear'
+                                id       : '2',
+                                firstName: 'Adam',
+                                lastName : 'Bear'
                         ],
                 ]
         )

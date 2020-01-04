@@ -1,11 +1,10 @@
-package student;
+package com.borykapp.secure1.springsecurityjwt.base;
 
-import com.borykapp.secure1.springsecurityjwt.domain.students.StudentsService;
-import com.borykapp.secure1.springsecurityjwt.domain.students.model.Quote;
+import com.borykapp.secure1.springsecurityjwt.domain.students.StudentResourceService;
 import com.borykapp.secure1.springsecurityjwt.domain.students.model.Student;
-import com.borykapp.secure1.springsecurityjwt.domain.students.model.Value;
 import com.borykapp.secure1.springsecurityjwt.rest.StudentsController;
-import com.sun.org.apache.xpath.internal.operations.Quo;
+import com.borykapp.secure1.springsecurityjwt.rest.dto.QuoteStudentResource;
+import com.borykapp.secure1.springsecurityjwt.rest.dto.StudentResource;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -27,7 +26,7 @@ public abstract class StudentBase {
     StudentsController studentsController;
 
     @Mock
-    StudentsService studentsService;
+    StudentResourceService studentResourceService;
 
     @Before
     public void setup() {
@@ -40,25 +39,25 @@ public abstract class StudentBase {
     }
 
     private void stubForGetQuoteForStudentById() {
-        when(studentsService.getStudentQuoteById(any()))
-                .thenReturn(new Quote("Type1", new Value(1, "Sample quote"), new Student(1L, "John", "Banana")));
+        when(studentResourceService.getQuoteByStudentId(any()))
+                .thenReturn(new QuoteStudentResource("Type1", "Sample quote", 1, new Student(1L, "John", "Banana")));
     }
 
     private void stubForGetStudentById() {
-        when(studentsService.getStudentById(any()))
-                .thenReturn(new Student(1L, "John", "Banana"));
+        when(studentResourceService.getStudentById(any()))
+                .thenReturn(new StudentResource(1L, "John", "Banana"));
     }
 
     public void stubForGetAllStudents() {
-        when(studentsService.getAllStudents())
+        when(studentResourceService.getAllStudents())
                 .thenReturn(createStudentList());
     }
 
-    private List<Student> createStudentList() {
-        List<Student> list = new ArrayList<>();
+    private List<StudentResource> createStudentList() {
+        List<StudentResource> list = new ArrayList<>();
 
-        list.add(new Student(1L, "John", "Squirrel"));
-        list.add(new Student(2L, "Adam", "Bear"));
+        list.add(new StudentResource(1L, "John", "Squirrel"));
+        list.add(new StudentResource(2L, "Adam", "Bear"));
 
         return list;
     }
