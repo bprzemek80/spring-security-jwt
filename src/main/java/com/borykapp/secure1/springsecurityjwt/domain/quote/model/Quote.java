@@ -1,4 +1,4 @@
-package com.borykapp.secure1.springsecurityjwt.domain.students.model;
+package com.borykapp.secure1.springsecurityjwt.domain.quote.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -14,5 +14,4 @@ import lombok.experimental.Accessors;
 public class Quote {
     private String type;
     private Value value;
-    private Student student;
 }

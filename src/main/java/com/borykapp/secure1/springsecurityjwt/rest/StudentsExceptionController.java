@@ -1,6 +1,6 @@
 package com.borykapp.secure1.springsecurityjwt.rest;
 
-import com.borykapp.secure1.springsecurityjwt.domain.students.exception.QuoteNotFoundException;
+import com.borykapp.secure1.springsecurityjwt.domain.quote.exception.QuoteNotFoundException;
 import com.borykapp.secure1.springsecurityjwt.domain.students.exception.StudentNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

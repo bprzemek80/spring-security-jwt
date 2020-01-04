@@ -12,7 +12,7 @@ public class Student implements Serializable {
     private String firstName;
     private String lastName;
 
-    public static Student createAdmissionStudent(Long id, String firstName, String lastName) {
+    public static Student create(Long id, String firstName, String lastName) {
         return new Student(id, firstName, lastName);
     }
 }

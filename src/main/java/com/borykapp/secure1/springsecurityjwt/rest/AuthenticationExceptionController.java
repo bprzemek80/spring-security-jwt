@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class HelloWorldExceptionController {
+public class AuthenticationExceptionController {
     @ExceptionHandler(value = SecurityCredentialException.class)
     public ResponseEntity<Object> exception(SecurityCredentialException e) {
-        return new ResponseEntity<>("Security exception is thrown!", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Security exception has been thrown!", HttpStatus.NOT_FOUND);
     }
 }

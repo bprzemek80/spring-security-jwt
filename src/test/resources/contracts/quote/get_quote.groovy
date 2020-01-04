@@ -1,12 +1,12 @@
-package student
+package quote
 
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    description "should return student by id"
+    description "should get quote"
 
     request {
-        url "v1/students/1"
+        url "v1/quote"
         method GET()
     }
 
@@ -17,9 +17,9 @@ Contract.make {
         }
         body(
                 [
-                        id       : '1',
-                        firstName: 'John',
-                        lastName : 'Banana'
+                        quote: 'Sample quote',
+                        quoteId: 1,
+                        type: 'Type1'
                 ]
         )
     }
