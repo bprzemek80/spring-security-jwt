@@ -15,6 +15,23 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.stream.Stream;
 
+/*
+To run application on https secured port you will have to do:
+1. use standard java utility key to ... keytool
+   keytool -genkey -alias my_alias -storetype PKCS12 -keyalg RSA -keysize 2048
+            -keystore my_key_store.p12 -validity 3650
+2. put generated my_key_store.p12 in ex. certificate directory (create if needed)
+    in main directory application
+3. add new properties to yml configuration
+    server:
+        port: 8081  // there is no need to use 443 or 8443 port number
+        ssl:
+            key-store: certificate/my_key_store.p12
+            key-store-type: PKCS12
+            key-alias: spring-security-application
+            key-store-password: password
+ */
+
 @SpringBootApplication
 @EnableConfigurationProperties
 
