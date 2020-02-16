@@ -10,7 +10,7 @@ public class StudentResourceAssembler implements Converter<Student, StudentResou
     @Override
     public StudentResource convert(Student source) {
         return new StudentResource(
-                source.getStudentId(),
+                source.getId(),
                 source.getFirstName(),
                 source.getLastName()
         );
