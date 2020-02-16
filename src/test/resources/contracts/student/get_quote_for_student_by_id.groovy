@@ -21,7 +21,6 @@ Contract.make {
                         quote  : 'Sample quote',
                         quoteId: 1,
                         student: [
-                                studentId: 1,
                                 firstName: 'John',
                                 lastName : 'Banana'
                         ]

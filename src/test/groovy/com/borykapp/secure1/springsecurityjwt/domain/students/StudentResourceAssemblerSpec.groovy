@@ -13,7 +13,7 @@ class StudentResourceAssemblerSpec extends Specification {
         when:
             def result = resourceAssembler.convert(student)
         then:
-            result.getId() == student.getStudentId()
+            result.getId() == student.getId()
             result.getFirstName() == student.getFirstName()
             result.getLastName() == student.getLastName()
 

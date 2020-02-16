@@ -10,7 +10,7 @@ class ClassUnitResourceAssemblerSpec extends Specification {
 
     def "should convert class unit to rest resource"() {
         given:
-            def classUnit = new ClassUnit(1L, "Lion's", List.of(Student.create(1L, "John", "Banana")))
+            def classUnit = new ClassUnit(1L, "Lion's", List.of(Student.create("John", "Banana")))
         when:
             def result = classUnitResourceAssembler.convert(classUnit)
         then:
