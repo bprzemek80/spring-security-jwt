@@ -15,21 +15,6 @@ example application will be used inMemoryDatabase.
 public class ClassUnitService {
     private static List<ClassUnit> inMemoryDatabase = new ArrayList<>();
 
-    static {
-        inMemoryDatabase.add(
-                new ClassUnit(1L, "Lion's",
-                        List.of(
-                                Student.create(1L, "John", "Banana"),
-                                Student.create(2L, "Adam", "Citron"),
-                                Student.create(3L, "William", "Honey"))));
-        inMemoryDatabase.add(
-                new ClassUnit(2L, "Crocodile's",
-                        List.of(
-                                Student.create(1L, "Albert", "Kiwi"),
-                                Student.create(2L, "Laura", "Citron"),
-                                Student.create(3L, "Pamela", "Strawberry"))));
-    }
-
     public List<ClassUnit> getClassUnites() {
         return inMemoryDatabase;
     }

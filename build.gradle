@@ -46,13 +46,22 @@ dependencies {
 
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
-	/*implementation 'org.springframework.boot:spring-boot-starter-data-jpa'*/
+	// Implement JPA base repositories
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Application security ex. tokens, jwt etc.
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Web application, rest etc.
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	/*runtimeOnly 'mysql:mysql-connector-java'*/
+
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+
+	// In memory database
+	runtimeOnly 'com.h2database:h2'
 
 	// Spock support
 	compile "org.codehaus.groovy:groovy-all:2.5.7"
